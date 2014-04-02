@@ -1,0 +1,74 @@
+﻿<Window x:Class="Kata.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="500" Width="525">
+    <StackPanel>
+        <Border BorderBrush="Black" BorderThickness="0,1">
+            <StackPanel>
+                <Label FontSize="16">Record that a car has been accepted</Label>
+                <DockPanel>
+                    <Label Content="Enter Make, Model, Color:"/>
+                    <TextBox x:Name="makeModelColorBox" GotKeyboardFocus="makeModelColorBox_GotKeyboardFocus" VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <Button Name="getTicketNumberButton" Click="getTicketNumberButton_Click">Get Ticket Number</Button>
+                <DockPanel>
+                    <Label Content="TicketNumber:"/>
+                    <TextBlock x:Name="ticketNumberBlock" VerticalAlignment="Center" />
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0,1">
+            <StackPanel>
+                <Label FontSize="16">Record that a car has been parked</Label>
+                <DockPanel>
+                    <Label Content="Enter Ticket Number, Lot Row Letter, Lot Column Number:"/>
+                    <TextBox x:Name="ticketNumberRowColumnBox" GotKeyboardFocus="ticketNumberRowColumnBox_GotKeyboardFocus" VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <Button Name="recordCarParkedButton" Click="recordCarParkedButton_Click">Done</Button>
+                <TextBlock Name="spotConfirmedBlock" VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="0,1">
+            <StackPanel>
+                <Label FontSize="16">Get parked car information</Label>
+                <DockPanel>
+                    <Label Content="Enter ticket number:"/>
+                    <TextBox x:Name="ticketNumberBox" GotKeyboardFocus="ticketNumberBox_GotKeyboardFocus" VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <Button Name="getInfoButton" Click="getInfoButton_Click">Get info</Button>
+                <DockPanel>
+                    <Label Content="Car information:"/>
+                    <TextBlock Name="carInformationBlock" VerticalAlignment="Center" />
+                </DockPanel>
+            </StackPanel>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="0,1">
+            <StackPanel>
+                <Label FontSize="16">Record that a car has been returned</Label>
+                <DockPanel>
+                    <Label Content="Enter ticket number:"/>
+                    <TextBox x:Name="carReturnedTicketNumberBox" GotKeyboardFocus="carReturnedTicketNumberBox_GotKeyboardFocus" VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <Button Name="returnCar" Click="returnCar_Click">Done</Button>
+                <TextBlock Name="carReturnedBlock" VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+
+        <!--<Border BorderBrush="Black" BorderThickness="0,1">
+            <StackPanel>
+                <Label FontSize="16">Find car info when ticket has been lost</Label>
+                <DockPanel>
+                    <Label Content="Enter Make, Model, Color:"/>
+                    <TextBox x:Name="lostTicketMakeModelColorBox" GotKeyboardFocus="lostTicketMakeModelColorBox_GotKeyboardFocus" VerticalContentAlignment="Center"/>
+                </DockPanel>
+                <Button Name="findCarInfoButton" Click="findCarInfoButton_Click">Get Ticket Number</Button>
+                <DockPanel>
+                    <Label Content="Car Info:"/>
+                    <TextBlock x:Name="lostTicketCarInfoBlock" VerticalAlignment="Center" />
+                </DockPanel>
+            </StackPanel>
+        </Border>-->
+
+    </StackPanel>
+</Window>
