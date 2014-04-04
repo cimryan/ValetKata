@@ -24,7 +24,7 @@ Now, use your simulated storage system to add new functionality the application.
 How can you make it easy to switch between implementations of the storage system in the application? Can you make it possible to switch in production without re-deploying?
 
 ## After-action discussion
-The pattern of replacing one implementation with another which is useful in a restricted context has been called “simulation”, with the implementation called a “simulator”.
+The pattern of replacing one implementation with another which is useful in a restricted context has been called “simulation”, with the implementation called a “simulator”*.
 
 Your implementation probably doesn’t account for concurrent access to the storage system, and it probably doesn’t account for persistence across invocations of the application. These are the restrictions being placed on the context in which the simulator is valid, and those restrictions are perfectly reasonable for the purpose for which the simulator was created: To facilitate testing.
 
@@ -34,4 +34,8 @@ This pattern is not always appropriate. For example, if there were a complicated
 
 When using a tell-don't-ask-design you'll frequently end up with classes at the leaves of the model which have unobservable side effects. That is to say, the side effects will be unobservable through the interface. If the contract tests are to be run against multiple implementations then can they be used to verify that a particular implementation has performed one of these unobservable side effects, or do you need other tests? Do those tests belong in the same project as the contract tests? Does the component they test belong in the same project as the code that uses it?
 
-Finally, an interesting point to consider is that the simulator is a legitimate implementation of an abstract concept. I.e. you expect the simulator to work with untested inputs. (Contrast with a mock.) This means that if you can find uses for your simulator in the production code there’s no reason not to use it. For example, could you implement a serializer for the simulator you developed, here? Or perhaps use a DataContractSerializer for it? Could you serialize the simulator to disk and load it from disk, so you didn’t need a database server, at all? 
+Finally, an interesting point to consider is that the simulator is a legitimate implementation of an abstract concept. I.e. you expect the simulator to work with untested inputs. (Contrast with a mock.) This means that if you can find uses for your simulator in the production code there’s no reason not to use it. For example, could you implement a serializer for the simulator you developed, here? Or perhaps use a DataContractSerializer for it? Could you serialize the simulator to disk and load it from disk, so you didn’t need a database server, at all?
+
+---
+
+\* This term was coined by [Arlo Belshee](http://arlobelshee.com/mock-free-example-part-2-simulators)
